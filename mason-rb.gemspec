@@ -7,8 +7,8 @@ Gem::Specification.new do |gem|
   gem.name = 'mason-rb'
   gem.version = MasonRb::VERSION
 
-  gem.summary = 'A tool for generating new Ruby gems.'
-  gem.description = 'A tool for generating new Ruby gems, under heavy development.'
+  gem.summary = 'Finally, a meta build tool.'
+  gem.description = 'Finally, a meta build tool.'
   gem.licenses = ['MIT']
   gem.authors = ['Richard Harrah']
   gem.email = 'topplethenunnery@gmail.com'
