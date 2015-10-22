@@ -21,7 +21,8 @@ RSpec.configure do |config|
 
   config.disable_monkey_patching!
 
-  config.warnings = true
+  # Disable warnings here
+  config.warnings = false
 
   if config.files_to_run.one?
     config.default_formatter = 'doc'
