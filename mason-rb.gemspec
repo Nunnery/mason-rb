@@ -23,13 +23,14 @@ Gem::Specification.new do |gem|
   gem.test_files = glob['{spec/{**/}*_spec.rb']
   gem.extra_rdoc_files = glob['*.{txt,rdoc}']
 
+  gem.add_dependency 'commander', '~> 4.3'
   gem.add_dependency 'pastel', '~> 0.5'
 
-  gem.add_development_dependency 'pry', '~> 0.10'
   gem.add_development_dependency 'bundler', '~> 1.10'
+  gem.add_development_dependency 'coveralls', '~> 0.8'
+  gem.add_development_dependency 'fuubar', '~> 2.0'
+  gem.add_development_dependency 'pry', '~> 0.10'
   gem.add_development_dependency 'rake', '~> 10.0'
   gem.add_development_dependency 'rspec', '~> 3.3'
   gem.add_development_dependency 'yard', '~> 0.8'
-  gem.add_development_dependency 'coveralls', '~> 0.8'
-  gem.add_development_dependency 'fuubar', '~> 2.0'
 end
