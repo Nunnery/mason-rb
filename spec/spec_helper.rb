@@ -1,6 +1,8 @@
 require 'mason-rb'
-require 'coveralls'
-Coveralls.wear!
+if MasonRb::Helper.is_ci?
+  require 'coveralls'
+  Coveralls.wear!
+end
 
 Dir[File.dirname(__FILE__) + '/support/**/*.rb'].each { |f| require f }
 
