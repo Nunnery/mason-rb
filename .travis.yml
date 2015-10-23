@@ -4,3 +4,14 @@ rvm:
 before_install:
 - gem update --system
 - gem install bundler
+addons:
+  code_climate:
+    repo_token: 0544cf1a1fe7fb241549bd72cb1f7374d424618ee3500c3864b3a1ffb4176878
+deploy:
+  provider: rubygems
+  api_key:
+    secure: s1/DSeHCfhT7OlrnLrfq8TcmFhpE01BbP/bfQzYLfHs+2zIu0KI7EcJFEr1hQd8NMNuqECirVcXMPdiu3/auLaX9Umyj89aKivs0PGSDWOxwlTkMWxLLGVN2kQV9lWpqfFZxnV3XmeSfk4P97Irj5x8bfCr4GHIvUVzNLQ0pGsiaddTX35WDMvkA0c+/vY1cd7yUkgN5quyoOJkXHr+zOeiCmlQNqvtYQmfzW9Ak/L5T/g5bjczxRp9klUiPT1pjg/2VbqT5bWx1gNAKEHDm1heWGEMyaYM8QAVawNFojnFituPdWtggC4Wb44dVyncjyaCmYm/WKHwx0dQwbKD+JIgAy084eqv8byEQM1grjNzwdlcYHNgilWN6Bk2ZhcrBs3VB/UgW14b7ZosJDrC4pUCvhX3gMcaaM55Ae5g0PGlosYOtyPMBpTgv21o3vaUQcF33YsNBL7FVl+taGZWDcIQ0MjvanlcMEFIxArFSkK/ualAzTaz+mQ1OiPx06Lue56xSRlia18hXf1igtso2Hm7yAEOVi6FfIqJ56gEHcm44OogqNzxlGFWn5gSRRoD/5c8IAL5mi1rt+tT1rmH3SMiPKJmzgrctTEc7/6+WQ2OcZpX70to3JVI/OdgBV/UgBvvfere/IWiLLYivTyZ+NJ47a7aA3/D4sGxfK4JITZM=
+  gem: mason-rb
+  on:
+    tags: true
+    repo: Nunnery/mason-rb
