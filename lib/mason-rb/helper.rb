@@ -63,7 +63,11 @@ module MasonRb
       #
       # @return [Boolean] true if in test environment, false if not
       def is_test?
-        defined? RSpec or defined? Cucumber or defined? Minitest or defined? SpecHelper
+        return true unless defined?(RSpec).nil?
+        return true unless defined?(Cucumber).nil?
+        return true unless defined?(Minitest).nil?
+        return true unless defined?(SpecHelper).nil?
+        false
       end
 
       # Tests and returns whether or not we're in a CI environment.
