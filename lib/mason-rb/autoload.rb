@@ -5,5 +5,6 @@ def __p(path) File.join(MasonRb::ROOT, 'mason-rb', *path.split('/')); end
 
 module MasonRb
   autoload :Console, __p('console')
+  autoload :Helper, __p('helper')
   autoload :Printing, __p('printing')
 end
