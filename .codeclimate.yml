@@ -2,7 +2,7 @@ engines:
   rubocop:
     enabled: true
   bundler-audit:
-    enabled: true
+    enabled: false
   fixme:
     enabled: true
 ratings:
