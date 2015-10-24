@@ -10,9 +10,19 @@ RSpec.describe MasonRb::Helper do
   describe '.is_ci?' do
     # Testing Jenkins support because it's environment variable based
     context 'when running on Jenkins' do
+      let(:travis) { ENV['TRAVIS'] }
       let(:jenkins_url) { ENV['JENKINS_URL'] }
-      before { ENV['JENKINS_URL'] ||= 'http://build.tealcube.com/' }
-      after { ENV['JENKINS_URL'] = jenkins_url }
+      let(:ci) { ENV['CI'] }
+      before {
+        ENV['TRAVIS'] = nil
+        ENV['JENKINS_URL'] = 'http://build.tealcube.com/'
+        ENV['CI'] = nil
+      }
+      after {
+        ENV['TRAVIS'] = travis
+        ENV['JENKINS_URL'] = jenkins_url
+        ENV['CI'] = ci
+      }
       let(:on_ci) { MasonRb::Helper.is_ci? }
       it 'returns true' do
         expect(on_ci).to eq true
@@ -22,8 +32,18 @@ RSpec.describe MasonRb::Helper do
     # Testing Travis support because it's environment variable based
     context 'when running on Travis' do
       let(:travis) { ENV['TRAVIS'] }
-      before { ENV['TRAVIS'] ||= 'true' }
-      after { ENV['TRAVIS'] = travis }
+      let(:jenkins_url) { ENV['JENKINS_URL'] }
+      let(:ci) { ENV['CI'] }
+      before {
+        ENV['TRAVIS'] = 'true'
+        ENV['JENKINS_URL'] = nil
+        ENV['CI'] = 'true'
+      }
+      after {
+        ENV['TRAVIS'] = travis
+        ENV['JENKINS_URL'] = jenkins_url
+        ENV['CI'] = ci
+      }
       let(:on_ci) { MasonRb::Helper.is_ci? }
       it 'returns true' do
         expect(on_ci).to eq true
@@ -33,8 +53,18 @@ RSpec.describe MasonRb::Helper do
     # Testing developer workstation because it's environment variable based
     context 'running on developer workstation' do
       let(:travis) { ENV['TRAVIS'] }
-      before { ENV['TRAVIS'] = nil }
-      after { ENV['TRAVIS'] = travis }
+      let(:jenkins_url) { ENV['JENKINS_URL'] }
+      let(:ci) { ENV['CI'] }
+      before {
+        ENV['TRAVIS'] = nil
+        ENV['JENKINS_URL'] = nil
+        ENV['CI'] = nil
+      }
+      after {
+        ENV['TRAVIS'] = travis
+        ENV['JENKINS_URL'] = jenkins_url
+        ENV['CI'] = ci
+      }
       let(:on_ci) { MasonRb::Helper.is_ci? }
       it 'returns false' do
         expect(on_ci).to eq false
