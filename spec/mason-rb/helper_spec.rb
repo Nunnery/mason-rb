@@ -23,7 +23,7 @@ RSpec.describe MasonRb::Helper do
     context 'when running on Travis' do
       let(:travis) { ENV['TRAVIS'] }
       before { ENV['TRAVIS'] ||= 'true' }
-      after { ENV['TRAVIS'] ||= travis }
+      after { ENV['TRAVIS'] = travis }
       let(:on_ci) { MasonRb::Helper.is_ci? }
       it 'returns true' do
         expect(on_ci).to eq true
@@ -32,6 +32,9 @@ RSpec.describe MasonRb::Helper do
 
     # Testing developer workstation because it's environment variable based
     context 'running on developer workstation' do
+      let(:travis) { ENV['TRAVIS'] }
+      before { ENV['TRAVIS'] = nil }
+      after { ENV['TRAVIS'] = travis }
       let(:on_ci) { MasonRb::Helper.is_ci? }
       it 'returns false' do
         expect(on_ci).to eq false
