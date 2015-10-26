@@ -1,5 +1,6 @@
 module MasonRb
   # Contains logic for configuration of MasonRb.
+  # All configuration logic is heavily inspired by fastlane_core.
   module Configuration
     # Contains logic for loading configuration files.
     class ConfigurationFile
