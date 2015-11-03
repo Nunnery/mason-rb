@@ -1,8 +1,5 @@
 RSpec.describe MasonRb::Helper do
 
-  # Make sure that MasonRb::Helper::PASTEL exists
-  it { is_expected.to have_constant 'PASTEL' }
-
   # Make sure that MasonRb::Helper::FOOBAR does not exist
   it { is_expected.to_not have_constant 'FOOBAR' }
 
@@ -80,6 +77,17 @@ RSpec.describe MasonRb::Helper do
       it 'returns true' do
         expect(on_test).to eq true
       end
+    end
+  end
+
+  describe '::PASTEL' do
+    # Make sure that MasonRb::Helper::PASTEL exists
+    it { is_expected.to have_constant 'PASTEL' }
+    let(:message) { 'Hello, world!' }
+    let(:pastel) { Pastel.new }
+
+    it 'colors strings' do
+      expect(pastel.green(message)).to eq MasonRb::Helper::PASTEL.green(message)
     end
   end
 
