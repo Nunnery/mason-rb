@@ -29,15 +29,15 @@ module MasonRb
         @@log.formatter = proc do |severity, datetime, progname, msg|
           string = $VERBOSE ? "#{severity} [#{datetime.strftime('%Y-%m-%d %H:%M:%S.%2N')}]: " : "[#{datetime.strftime('%H:%M:%S')}]: "
           second = "#{msg}\n"
-          if severity == "DEBUG"
+          if severity == 'DEBUG'
             string = PASTEL.magenta(string)
-          elsif severity == "INFO"
+          elsif severity == 'INFO'
             string = PASTEL.white(string)
-          elsif severity == "WARN"
+          elsif severity == 'WARN'
             string = PASTEL.yellow(string)
-            elsif severity == "ERROR"
+            elsif severity == 'ERROR'
             string = PASTEL.red(string)
-          elsif severity == "FATAL"
+          elsif severity == 'FATAL'
             string = PASTEL.red.bold(string)
           end
           "#{string}#{second}"
